@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #liste {
+            width: 200px;
+            height: 400px;
+            background-color: lightgray;
+        }
+
+        /*Div açma kapama butonuna stil verdik*/
+        /*. classlar için kullanılıyor, birden çok eleman için kullanıyoruz*/
+        .genel {
+            width: 200px;
+            height: 400px;
+            background-color: aquamarine;
+        }
+    </style>
+
+    <script src="JQuery-3.3.1.js"></script>
+    <script>
+
+        //$("btnEkle").click(function () {
+        //    var metin = $("txtAd").val() + " <br />";
+        //    $("#liste").html(metin);
+        //})
+        //2.yol
+        $(document).ready(function () {
+            $("#btnEkle").click(function () {
+                var metin = $("#txtAd").val() + " <br />";
+                //$("#liste").html(metin);
+                $("#liste").append(metin);
+
+            })
+
+
+            $("#btnAcKapat").click(function () {
+                $(".genel").toggle("slow");
+            });
+
+            $("#btnRenkDegistir").click(function () {
+                //clicki çalıştıran eleman hangisiyse onun thisini çağırıyor
+                $("this").css("background-color", "red");
+            });
+
+
+            $("#btnRenkDegistir").click(function () {
+                var r = Math.floor(Math.random() * 255);
+                var g = Math.floor(Math.random() * 255);
+                var b = Math.floor(Math.random() * 255);
+                $(this).css("background-color", "rgb(" + r + "," + g + "," + b + ")");
+            });
+
+
+
+        });
+    </script>
+</head>
+<body>
+    Adı:<input type="text" id="txtAd" />
+    <input type="button" name="Name" value="Ekle" id="btnEkle" />
+    <div id="liste"></div>
+    <input type="button" value="Renk Degistir" id="btnRenkDegistir" />
+    <br />
+    <br />
+    <div class="genel"></div>
+    <input type="button" value="Div Aç Kapat" id="btnAcKapat" />
+
+</body>
+</html>
